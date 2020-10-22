@@ -73,10 +73,20 @@ def get_file_name_dict(coco_path, file_name_list):
 
     return img_file_dict
 
-if __name__ == "__main__":
-    # Set root
-    coco_path = "/home/etriobj/jupyter/etri/coco/train"
+def exe_convert_custom_to_coco(is_train=True):
+    '''
+        Main function for convert
 
+        Args:
+            is_train : set train directory or valid directory
+    '''
+    
+    # Set root path
+    if is_train:
+        coco_path = "/home/etriobj/jupyter/etri/coco/train"
+    else:
+        coco_path = "/home/etriobj/jupyter/etri/coco/train"
+    
     # Annotation file name
     coco_annotation_path = os.path.join(coco_path, "annotations")
     annotation_file_path = os.path.join(coco_annotation_path, "challenge_train"+".json")
@@ -114,6 +124,10 @@ if __name__ == "__main__":
     # Save json file
     with open(annotation_file_path, 'w', encoding='utf-8') as make_file :
         json.dump(total, make_file, ensure_ascii=False, indent='\t')
+
+if __name__ == "__main__":
+    exe_convert_custom_to_coco(is_train=True)
+    exe_convert_custom_to_coco(is_train=False)
 
     
 

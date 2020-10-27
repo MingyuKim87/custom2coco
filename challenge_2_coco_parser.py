@@ -11,7 +11,7 @@ import datetime
 from tqdm import tqdm
 
 # coco utils
-from utils_coco import *
+from App.utils_coco import *
 
 def get_label_list(coco_path):
     ''' 
